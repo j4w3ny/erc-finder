@@ -1,0 +1,3 @@
+[submodule "content/ercs"]
+	path = content/ercs
+	url = https://github.com/ethereum/ERCs.git
