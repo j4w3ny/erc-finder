@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxt/content'],
   content: {
+    renderer: {
+      anchorLinks: { h2: true },
+    },
     build: {
       markdown: {
         highlight: {

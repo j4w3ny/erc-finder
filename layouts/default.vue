@@ -5,7 +5,7 @@
       <div class="grow" />
       <div class="flex text-lg my-auto gap-x-8">
         <NuxtLink href="/">Homepage</NuxtLink>
-        <NuxtLink>Categories</NuxtLink>
+        <NuxtLink href="/categories">Categories</NuxtLink>
         <NuxtLink href="/about">About</NuxtLink>
         <NuxtLink
           ><UIcon name="i-grommet-icons-github" class="size-6"

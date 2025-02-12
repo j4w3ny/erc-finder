@@ -18,9 +18,10 @@ import { array as A, eq as EQ } from 'fp-ts';
 import { pipe } from 'fp-ts/lib/function';
 
 const route = useRoute();
-const { data: ercData } = await useAsyncData('ercs', () =>
-  queryCollection('ercs').where('eip', '=', route.params.id).first()
-);
+if (typeof route.params.id !== 'string') {
+  throw new Error('Invaild route');
+}
+const { data: ercData } = await useErcData(route.params.id);
 const queryRequiresEIPs = async (ercData: ErcsCollectionItem) => {
   const data = await queryCollection('ercs')
     .where(

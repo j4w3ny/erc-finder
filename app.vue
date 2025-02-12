@@ -2,6 +2,7 @@
 import '~/styles/global.css';
 </script>
 <template>
+  <NuxtRouteAnnouncer />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
