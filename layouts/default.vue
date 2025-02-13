@@ -2,7 +2,7 @@
   <div class="max-w-screen flex flex-col min-h-dvh">
     <div class="flex justify-stretch m-4">
       <NuxtLink href="/">
-        <h1 class="text-3xl">EIP Finder</h1>
+        <h1 class="text-3xl">ERC Finder</h1>
       </NuxtLink>
       <div class="grow" />
       <div class="flex text-lg my-auto gap-x-8">
