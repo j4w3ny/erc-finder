@@ -88,7 +88,7 @@ async function layoutGraph(direction: 'TB' | 'LR') {
                 </div>
               </div>
             </template>
-            <div class="flex flex-row gap-1 max-w-full overflow-auto">
+            <div class="flex flex-row gap-1` max-w-full overflow-auto">
               <template v-for="edge in edges">
                 <UBadge v-if="edge.source === category.rootEIP?.toString()">
                   {{ edge.target }}
