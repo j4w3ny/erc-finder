@@ -1,5 +1,5 @@
 import dagre from '@dagrejs/dagre';
-import { Position, useVueFlow } from '@vue-flow/core';
+import { Position, useVueFlow, type Edge, type Node } from '@vue-flow/core';
 import { ref } from 'vue';
 
 /**
@@ -13,7 +13,7 @@ export function useLayout() {
 
   const previousDirection = ref('LR');
 
-  function layout(nodes, edges, direction) {
+  function layout(nodes: Node[], edges: Edge[], direction: 'LR' | 'TB') {
     // we create a new graph instance, in case some nodes/edges were removed, otherwise dagre would act as if they were still there
     const dagreGraph = new dagre.graphlib.Graph();
 
@@ -22,7 +22,12 @@ export function useLayout() {
     dagreGraph.setDefaultEdgeLabel(() => ({}));
 
     const isHorizontal = direction === 'LR';
-    dagreGraph.setGraph({ rankdir: direction });
+    dagreGraph.setGraph({
+      rankdir: direction,
+      acyclicer: 'greedy',
+      //   edgesep: 20,
+      ranker: 'tight-tree',
+    });
 
     previousDirection.value = direction;
 
@@ -31,8 +36,8 @@ export function useLayout() {
       const graphNode = findNode(node.id);
 
       dagreGraph.setNode(node.id, {
-        width: graphNode.dimensions.width || 150,
-        height: graphNode.dimensions.height || 50,
+        width: graphNode!.dimensions.width || 150,
+        height: graphNode!.dimensions.height || 50,
       });
     }
 

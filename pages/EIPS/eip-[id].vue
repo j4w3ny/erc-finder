@@ -128,7 +128,10 @@ async function layoutGraph(direction: 'TB' | 'LR') {
             <h1>ERC-{{ ercData.eip }}</h1>
             <h3>{{ ercData.status }}</h3>
           </div>
-          <h4>{{ ercData.title }}</h4>
+          <div class="flex justify-between">
+            <h4>{{ ercData.title }}</h4>
+          </div>
+          <p class="text-gray-400">{{ ercData.author }}</p>
         </template>
         <template #default v-if="metadataItems && A.isNonEmpty(metadataItems)">
           <UAccordion :items="metadataItems" />

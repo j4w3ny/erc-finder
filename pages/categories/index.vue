@@ -6,28 +6,7 @@ const { data } = await useErcDataAll();
 const { layout } = useLayout();
 const { fitView } = useVueFlow();
 
-interface Category {
-  id: string;
-  name: string;
-  rootEIP?: number;
-  tags: string[];
-}
-
-const categories = ref<Category[]>([
-  {
-    id: 'erc-20',
-    name: 'ERC-20',
-    rootEIP: 20,
-    tags: ['erc-20', 'figuable token'],
-  },
-  {
-    id: 'erc-721',
-    name: 'ERC-721',
-    rootEIP: 721,
-    tags: ['erc-721', 'non-figuable token'],
-  },
-  { id: 'miscellaneous', name: 'Miscellaneous', tags: [] },
-]);
+const categories = useCategories();
 
 const nodes = ref<Node[]>(
   (data.value ?? []).map((item) => ({
@@ -46,6 +25,7 @@ const edges = ref<Edge[]>(
       const targetEIP = item.eip;
       return requiresEIP.map((eip) => ({
         id: `e${eip}-${targetEIP}`,
+        type: 'smoothstep',
         target: targetEIP.toString(),
         source: eip.toString(),
       }));
@@ -75,9 +55,8 @@ async function layoutGraph(direction: 'TB' | 'LR') {
           v-for="category in categories"
           :key="category.id"
           :to="`/categories/${category.id}`"
-          class="shadow-lg"
         >
-          <UCard>
+          <UCard class="shadow-lg h-full">
             <template #header>
               <div class="flex justify-between">
                 <h2>{{ category.name }}</h2>
@@ -113,5 +92,5 @@ async function layoutGraph(direction: 'TB' | 'LR') {
       </div> -->
     </UCard>
   </div>
-  <NuxtPage />
+  <!-- <NuxtPage /> -->
 </template>
