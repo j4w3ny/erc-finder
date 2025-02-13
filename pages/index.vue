@@ -27,8 +27,6 @@ async function search(query: string) {
   const result = miniSearch.search(toValue(query));
   return result;
 }
-
-// const result = computed(() => miniSearch.search(toValue(query)));
 </script>
 <template>
   <div class="grow flex flex-col gap-4 justify-center m-8 justify-items-end">
