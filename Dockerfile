@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS build
+FROM imbios/bun-node:1-current-alpine AS build
 WORKDIR /app
 
 COPY package.json bun.lockb ./
@@ -24,4 +24,4 @@ ENV PORT=80
 ENV HOST=0.0.0.0
 # run the app
 EXPOSE 80
-ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
+ENTRYPOINT [ "node", "/app/server/index.mjs" ]
