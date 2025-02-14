@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxt/content'],
   content: {
+    database: {
+      type: 'postgres',
+      url: process.env.POSTGRES_URL!,
+    },
     renderer: {
       anchorLinks: { h2: true },
     },
