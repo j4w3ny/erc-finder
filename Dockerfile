@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS build
+FROM imbios/bun-node:1-23-alpine AS build
 WORKDIR /app
 
 COPY package.json bun.lockb ./
@@ -11,7 +11,7 @@ RUN bun install --frozen-lockfile --ignore-scripts
 # Copy the entire project
 COPY . .
 
-RUN bun run build
+RUN npm run build
 
 # copy production dependencies and source code into final image
 FROM imbios/bun-node:1-23-alpine AS production
