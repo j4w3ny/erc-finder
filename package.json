@@ -25,6 +25,7 @@
     "@vue-flow/minimap": "^1.5.2",
     "better-sqlite3": "^11.8.1",
     "fp-ts": "^2.16.9",
-    "minisearch": "^7.1.1"
+    "minisearch": "^7.1.1",
+    "node-gyp": "^11.1.0"
   }
 }
