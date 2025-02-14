@@ -2,6 +2,7 @@
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM imbios/bun-node:1-23-debian AS build
 WORKDIR /app
+RUN corepack enable
 
 COPY package.json bun.lockb ./
 
