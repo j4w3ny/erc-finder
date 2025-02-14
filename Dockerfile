@@ -1,8 +1,15 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS build
+FROM oven/bun:1-alpine AS build
 WORKDIR /app
 
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
 COPY package.json bun.lockb ./
 
 # use ignore-scripts to avoid builting node modules like better-sqlite3
