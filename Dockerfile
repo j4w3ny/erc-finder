@@ -3,6 +3,9 @@
 FROM imbios/bun-node:1-23-alpine AS build
 WORKDIR /app
 
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
+
 COPY package.json bun.lockb ./
 
 # use ignore-scripts to avoid builting node modules like better-sqlite3
