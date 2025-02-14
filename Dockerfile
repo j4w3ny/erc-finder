@@ -27,4 +27,4 @@ ENV HOST=0.0.0.0
 # run the app
 EXPOSE 80
 
-CMD ["node", "/app/server/index.mjs"]
+ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
