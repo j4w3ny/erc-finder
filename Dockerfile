@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS build
+FROM oven/bun:1-alpine AS build
 WORKDIR /app
 RUN apk update && apk upgrade
 RUN apk add --no-cache sqlite
@@ -15,7 +15,7 @@ COPY . .
 RUN bun --node run build
 
 # copy production dependencies and source code into final image
-FROM oven/bun:1 AS production
+FROM oven/bun:1-alpine AS production
 WORKDIR /app
 RUN apk update && apk upgrade
 RUN apk add --no-cache sqlite
