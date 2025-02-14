@@ -5,6 +5,9 @@ WORKDIR /app
 
 RUN corepack enable
 
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
+
 # Copy package.json and your lockfile, here we add pnpm-lock.yaml for illustration
 COPY package.json ./
 
@@ -21,7 +24,8 @@ RUN pnpm run build
 
 FROM node:22-alpine
 WORKDIR /app
-
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output/ ./
 
