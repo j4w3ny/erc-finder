@@ -14,11 +14,11 @@ COPY . .
 RUN bun --bun run build
 
 # copy production dependencies and source code into final image
-FROM imbios/bun-node:1-23-debian AS production
+FROM imbios/bun-node:1-23-alpine AS production
 WORKDIR /app
 
-RUN apt update && apt upgrade
-RUN apt install sqlite -y
+RUN apk update && apk upgrade
+RUN apk add --no-cache sqlite
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output /app
 
