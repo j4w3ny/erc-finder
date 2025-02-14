@@ -11,7 +11,7 @@ RUN bun install --frozen-lockfile --ignore-scripts
 # Copy the entire project
 COPY . .
 
-RUN npm run build
+RUN pnpm run build
 
 # copy production dependencies and source code into final image
 FROM imbios/bun-node:1-23-alpine AS production
