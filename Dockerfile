@@ -1,9 +1,8 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1-alpine AS build
+FROM oven/bun:1 AS build
 WORKDIR /app
-RUN apk update && apk upgrade
-RUN apk add --no-cache sqlite
+
 COPY package.json bun.lockb ./
 
 # use ignore-scripts to avoid builting node modules like better-sqlite3
