@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # copy production dependencies and source code into final image
-FROM imbios/bun-node:1-23-debian AS production
+FROM imbios/bun-node:1-23-alpine AS production
 WORKDIR /app
 
 RUN apk update && apk upgrade
