@@ -23,5 +23,8 @@ RUN apk add --no-cache sqlite
 COPY --from=build /app/.output /app
 
 # run the app
-EXPOSE 3000/tcp
+ENV PORT=80
+ENV HOST=0.0.0.0
+
+EXPOSE 80
 ENTRYPOINT [ "bun", "--node", "run", "/app/server/index.mjs" ]
