@@ -11,7 +11,7 @@ RUN bun install --frozen-lockfile --ignore-scripts
 # Copy the entire project
 COPY . .
 
-RUN bun --bun run build
+RUN bun run build
 
 # copy production dependencies and source code into final image
 FROM imbios/bun-node:1-23-alpine AS production
@@ -27,4 +27,4 @@ ENV HOST=0.0.0.0
 # run the app
 EXPOSE 80
 
-ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
+ENTRYPOINT [ "node", "/app/server/index.mjs" ]
