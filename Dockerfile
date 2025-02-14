@@ -5,6 +5,7 @@ WORKDIR /app
 
 RUN apk update && apk upgrade
 RUN apk add --no-cache sqlite
+RUN apk add --no-cache build-base
 # Install python/pip
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
