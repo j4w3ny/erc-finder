@@ -4,7 +4,7 @@ FROM imbios/bun-node:1-23-debian AS build
 WORKDIR /app
 RUN corepack enable
 
-COPY package.json bun.lockb ./
+COPY package.json ./
 
 # use ignore-scripts to avoid builting node modules like better-sqlite3
 RUN pnpm i
