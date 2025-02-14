@@ -26,4 +26,5 @@ ENV PORT=80
 ENV HOST=0.0.0.0
 # run the app
 EXPOSE 80
-ENTRYPOINT [ "node", "/app/server/index.mjs" ]
+
+CMD ["node", "/app/server/index.mjs"]
