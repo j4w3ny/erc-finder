@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM imbios/bun-node:1-current-alpine AS build
+FROM imbios/bun-node:1-23-alpine AS build
 WORKDIR /app
 
 COPY package.json bun.lockb ./
