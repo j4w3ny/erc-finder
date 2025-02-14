@@ -14,7 +14,6 @@
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.21.0",
     "nuxt": "^3.15.4",
-    "pg": "^8.13.3",
     "vue": "latest",
     "wrangler": "^3.108.1"
   },
@@ -25,7 +24,6 @@
     "@vue-flow/minimap": "^1.5.2",
     "better-sqlite3": "^11.8.1",
     "fp-ts": "^2.16.9",
-    "minisearch": "^7.1.1",
-    "node-gyp": "^11.1.0"
+    "minisearch": "^7.1.1"
   }
 }
