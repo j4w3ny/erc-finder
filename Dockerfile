@@ -20,8 +20,8 @@ WORKDIR /app
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output /app
 
-ENV PORT 80
-ENV HOST 0.0.0.0
+ENV PORT=80
+ENV HOST=0.0.0.0
 # run the app
 EXPOSE 80
 ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
