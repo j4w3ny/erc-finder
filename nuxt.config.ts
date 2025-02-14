@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  nitro: {
+    preset: 'node_server',
+  },
   modules: ['@nuxt/ui', '@nuxt/content'],
   content: {
     // database: {
