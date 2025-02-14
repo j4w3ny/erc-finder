@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM imbios/bun-node:1-23-debian AS build
+FROM oven/bun:1 AS build
 WORKDIR /app
 
 COPY package.json bun.lockb ./
@@ -14,9 +14,11 @@ COPY . .
 RUN bun --bun run build
 
 # copy production dependencies and source code into final image
-FROM oven/bun:1 AS production
+FROM imbios/bun-node:1-23-debian AS production
 WORKDIR /app
 
+RUN apt update && apt upgrade
+RUN apt install sqlite -y
 # Only `.output` folder is needed from the build stage
 COPY --from=build /app/.output /app
 
