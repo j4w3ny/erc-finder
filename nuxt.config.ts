@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   nitro: {
-    preset: 'bun',
+    // preset: 'bun',
     // prerender: {
     //   crawlLinks: true,
     //   routes: ['/'],
