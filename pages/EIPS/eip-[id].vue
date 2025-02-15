@@ -24,7 +24,7 @@ if (typeof route.params.id !== 'string') {
 const { data: ercData } = await useErcData(route.params.id);
 
 if (ercData.value) {
-  defineOgImageComponent('EIP', { ...ercData.value });
+  defineOgImageComponent('EIP', { ...ercData.value }, {});
 }
 const queryRequiresEIPs = async (ercData: ErcsCollectionItem) => {
   const data = await queryCollection('ercs')
@@ -120,6 +120,12 @@ async function layoutGraph(direction: 'TB' | 'LR') {
 }
 </script>
 <template>
+  <Head>
+    <Meta
+      property="og:title"
+      :content="`ERC-${ercData?.eip} - ${ercData?.title}`"
+    />
+  </Head>
   <div v-if="!ercData">Cannot find requested ERC</div>
   <div
     v-else
