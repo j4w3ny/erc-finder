@@ -22,6 +22,10 @@ if (typeof route.params.id !== 'string') {
   throw new Error('Invaild route');
 }
 const { data: ercData } = await useErcData(route.params.id);
+
+if (ercData.value) {
+  defineOgImageComponent('EIP', { ...ercData.value });
+}
 const queryRequiresEIPs = async (ercData: ErcsCollectionItem) => {
   const data = await queryCollection('ercs')
     .where(

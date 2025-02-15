@@ -5,6 +5,8 @@ const { data } = await useAsyncData('ercsSearchQuery', () =>
   queryCollection('ercs').where('eip', 'IN', [20, 721, 1155]).all()
 );
 
+defineOgImageComponent('ERCFinder');
+
 const query = ref<ErcsCollectionItem | undefined>(undefined);
 const loading = ref(false);
 const { data: searchData } = await useErcDataAll();

@@ -2,14 +2,25 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   nitro: {
-    preset: 'node_server',
-  },
-  modules: ['@nuxt/ui', '@nuxt/content'],
-  content: {
-    // database: {
-    //   type: 'postgres',
-    //   url: process.env.POSTGRES_URL!,
+    preset: 'bun',
+    // prerender: {
+    //   crawlLinks: true,
+    //   routes: ['/'],
     // },
+  },
+  routeRules: {
+    '/LICENSE': { prerender: false },
+  },
+  modules: ['@nuxt/ui', '@nuxt/content', 'nuxt-og-image'],
+  site: {
+    url: 'https://erc-finder.moumantai.xyz',
+    name: 'ERC Finder',
+  },
+  ogImage: {
+    // zeroRuntime: true,
+  },
+
+  content: {
     renderer: {
       anchorLinks: { h2: true },
     },

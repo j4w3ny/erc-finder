@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+defineOgImageComponent('ERCFinder');
 import { useVueFlow, type Edge, type Node } from '@vue-flow/core';
 import '@vue-flow/core/dist/style.css';
 import '@vue-flow/core/dist/theme-default.css';
