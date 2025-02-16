@@ -125,6 +125,7 @@ async function layoutGraph(direction: 'TB' | 'LR') {
       property="og:title"
       :content="`ERC-${ercData?.eip} - ${ercData?.title}`"
     />
+    <Title>ERC-{{ ercData?.eip }}</Title>
   </Head>
   <div v-if="!ercData">Cannot find requested ERC</div>
   <div
